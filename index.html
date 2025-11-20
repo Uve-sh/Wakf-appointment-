@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Waqf Appointment Booking</title>
+
   <style>
     * {
       margin: 0;
@@ -23,35 +24,44 @@
 
     .container {
       background: #ffffff;
-      border-radius: 2px;
       padding: 48px;
       max-width: 600px;
       width: 100%;
+      border-radius: 2px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .header {
       border-bottom: 2px solid #0078d4;
       padding-bottom: 14px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     h1 {
       color: #323130;
       font-size: 24px;
-      font-weight: 600;
       margin-bottom: 8px;
     }
 
     .subtitle {
       color: #605e5c;
       font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      background: #eef6ff;
+      padding: 10px;
+      border-left: 3px solid #0078d4;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #323130;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
 
     .form-group {
@@ -61,9 +71,9 @@
     }
 
     label {
-      color: #323130;
       font-weight: 600;
       font-size: 14px;
+      color: #323130;
     }
 
     input, textarea {
@@ -71,13 +81,8 @@
       border: 1px solid #8a8886;
       border-radius: 2px;
       font-size: 14px;
-      font-family: inherit;
       transition: border-color 0.15s ease;
       background: #ffffff;
-    }
-
-    input:hover, textarea:hover {
-      border-color: #323130;
     }
 
     input:focus, textarea:focus {
@@ -108,84 +113,70 @@
       cursor: pointer;
       transition: background-color 0.15s ease;
       margin-top: 8px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      align-self: flex-start;
     }
 
     button:hover {
       background: #106ebe;
     }
 
-    button:active {
-      background: #005a9e;
+    #visitBtn {
+      background: #28a745;
+      width: 100%;
     }
 
-    .required {
-      color: #a4262c;
+    #visitBtn:hover {
+      background: #1f8a37;
     }
 
     .footer-note {
-      color: #605e5c;
       font-size: 12px;
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid #edebe9;
+      color: #605e5c;
+      margin-top: 20px;
     }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 32px 24px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      button {
-        width: 100%;
-      }
+      .container { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      button { width: 100%; }
     }
-    #visitBtn:hover {
-  background: #218838;
-    }
-
   </style>
 </head>
+
 <body>
+
   <div class="container">
+
     <div class="header">
       <h1>Appointment Booking</h1>
       <p class="subtitle">Umeed Portal Registration</p>
-      <p> પોર્ટલ નોંધણી સંબંધિત પૂછપરછ માટે કૃપા કરીને 9313607226 (મુસ્તફા સૈયદ) અથવા 8866831535 (ઉવેશ ગોથેન) પર સંપર્ક કરો.
-દસ્તાવેજ સંબંધિત પ્રશ્નો માટે કૃપા કરીને સંપર્ક કરો 8866831535 (ઉવેશ ગોથેન).</p>
     </div>
-    <div class="header"<p>For any issues in booking contact 9909909767 (Jabir Bhai)/બુકિંગમાં કોઈપણ સમસ્યા માટે 9909909767 (જાબીર ભાઈ) પર સંપર્ક કરો.
-</p></div>
+
+    <div class="notice">
+      પોર્ટલ નોંધણી માટે સંપર્ક કરો: 9313607226 (મુસ્તફા સૈયદ) અથવા 8866831535 (ઉવેશ ગોથેન)<br>
+      દસ્તાવેજ સંબંધિત પ્રશ્નો: 8866831535 (ઉવેશ ગોથેન)<br>
+      બુકિંગ સમસ્યાઓ: 9909909767 (જાબીર ભાઈ)
+    </div>
+
     <form id="appointmentForm">
+
       <div class="form-group">
-        <label>Full Name of Mutawalli/મુતાવલ્લીનું પૂરું નામ
-<span class="required">*</span></label>
-        <input type="text" id="name" placeholder="Enter full name" required>
+        <label>Full Name of Mutawalli / મુતાવલ્લીનું પૂરું નામ <span class="required">*</span></label>
+        <input type="text" id="mutawalliName" required placeholder="Enter full name">
       </div>
+
       <div class="form-group">
-        <label>Name of trust/ટ્રસ્ટનું નામ
-<span class="required">*</span></label>
-        <input type="text" id="name" placeholder="Enter full name of trust" required>
-        </div>
+        <label>Name of Trust / ટ્રસ્ટનું નામ <span class="required">*</span></label>
+        <input type="text" id="trustName" required placeholder="Enter trust name">
+      </div>
 
       <div class="form-group">
         <label>Phone Number <span class="required">*</span></label>
-        <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
+        <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX">
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Appointment Date/મુલાકાતની તારીખ
- <span class="required">*</span></label>
+          <label>Appointment Date / તારીખ <span class="required">*</span></label>
           <input type="date" id="date" required>
         </div>
 
@@ -196,65 +187,63 @@
       </div>
 
       <div class="form-group">
-        <label>What documents you don't have?/તમારી પાસે કયા કાગળો નથી?</label>
-        <textarea id="purpose" placeholder="Please describe all the details of the documents you dont have"></textarea>
+        <label>Documents you don't have? / કયા દસ્તાવેજો નથી?</label>
+        <textarea id="docsMissing" placeholder="List missing documents"></textarea>
       </div>
 
       <div class="form-group">
-        <label>Wakf number/Auqaf number/Registration number
-<span class="required">*</span></label>
-        <input type="text" id="name" placeholder="Enter registration number" required>
-        <p class="subtitle">Appointment time conformation message will be send to mutawallis number.</p>
-        <p>એપોઇન્ટમેન્ટ સમય કન્ફર્મેશન મેસેજ મુતાવલ્લીસ નંબર પર મોકલવામાં આવશે.</p>
-        </div>
-      <button type="submit">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Submit via WhatsApp
-      </button>
-      <div class="footer-note">
-        All fields marked with <span class="required">*</span> are required. Your appointment request will be sent via WhatsApp for confirmation.
+        <label>Waqf / Auqaf / Registration Number <span class="required">*</span></label>
+        <input type="text" id="waqfNumber" required placeholder="Enter registration number">
       </div>
-      <div class="footer-note" id="visitus">
-  <button type="button" id="visitBtn">📍 Visit Us</button>
-</div>
+
+      <button type="submit">Submit via WhatsApp</button>
+
+      <button type="button" id="visitBtn">📍 Visit Us</button>
+
+      <div class="footer-note">
+        All fields marked with * are required. Confirmation message will be sent to Mutawalli's number.
+      </div>
+
     </form>
+
   </div>
 
   <script>
     // Set minimum date to today
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById("date").setAttribute('min', today);
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").setAttribute("min", today);
 
-    document.getElementById("appointmentForm").addEventListener("submit", function(e){
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      
-      const name = document.getElementById("name").value;
+
+      const name = document.getElementById("mutawalliName").value;
+      const trust = document.getElementById("trustName").value;
       const phone = document.getElementById("phone").value;
       const date = document.getElementById("date").value;
       const time = document.getElementById("time").value;
-      const purpose = document.getElementById("purpose").value;
-      
-      const message = `*Appointment Request*\n\n` +
-                     `Name: ${name}\n` +
-                     `Phone: ${phone}\n` +
-                     `Date: ${date}\n` +
-                     `Time: ${time}\n` +
-                     `Purpose: ${purpose || 'Not specified'}`;
-      
-      const encodedMessage = encodeURIComponent(message);
-      const waNumber ="918866831535"; // ← replace with your WhatsApp number
-      const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
-      
-      window.open(waLink, "_blank");
-    });
-    document.getElementById("visitBtn").addEventListener("click", function() {
-  // Replace this with your actual Google Maps link
-  const mapLink = "https://share.google/E3HlhH9AYfBGtYa8R"; 
-  window.open(mapLink, "_blank");
-});
+      const docs = document.getElementById("docsMissing").value;
+      const waqf = document.getElementById("waqfNumber").value;
 
+      const message =
+        `*Appointment Request*\n\n` +
+        `Mutawalli Name: ${name}\n` +
+        `Trust Name: ${trust}\n` +
+        `Phone: ${phone}\n` +
+        `Date: ${date}\n` +
+        `Time: ${time}\n` +
+        `Missing Documents: ${docs || "None"}\n` +
+        `Waqf Number: ${waqf}`;
+
+      const encoded = encodeURIComponent(message);
+      const number = "918866831535";
+
+      window.open(`https://wa.me/${number}?text=${encoded}`, "_blank");
+    });
+
+    document.getElementById("visitBtn").addEventListener("click", function() {
+      window.open("https://share.google/E3HlhH9AYfBGtYa8R", "_blank");
+    });
   </script>
+
 </body>
 </html>
